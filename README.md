@@ -1,24 +1,7 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+python3 remote_command_execution_vulnerability.py
 
-Things you may want to cover:
+curl http://rubydesign.fi/openwrt-21.02.2-ramips-mt7621-xiaomi_mi-router-4a-gigabit-squashfs-sysupgrade.bin --output firmware.bin
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+mtd -e OS1 -r write firmware.bin OS1 # Install OpenWrt
