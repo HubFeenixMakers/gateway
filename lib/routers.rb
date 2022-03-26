@@ -4,7 +4,7 @@ require "net/ssh"
 class Routers
 
   @@start_address = "10.20.20."
-  @@start_at = 43
+  @@start_at = 30
   @@stop_at = 80
 
   def initialize
@@ -15,36 +15,19 @@ class Routers
     @@start_address + @at.to_s
   end
 
-  def for_each command_string
-    # find
-    # connect
-    # run command
-  end
-
-  # takes a block and yields ip and connectio to
-  # every succesful connection
-  def all_ips
-    while(@at < @@stop_at)
-      begin
-        connection = Net::SSH.start(at , "root" ,
-            password:  Rails.application.credentials.sala,
-            non_interactive: true ,
-            timeout: 4)
-        puts "Ok #{at}"
-        yield( at , connection)
-        break
-      rescue Net::SSH::ConnectionTimeout
-        puts "Not at #{at}  Timed out ssh"
-      rescue Errno::ETIMEDOUT
-        puts "Not at #{at}  Timed out erro"
-      rescue Errno::EHOSTUNREACH
-        puts "Not at #{at}  Host unreachable"
-      rescue Errno::ECONNREFUSED
-        puts "Not at #{at}  Connection refused"
-      rescue Net::SSH::AuthenticationFailed
-        puts "Not at #{at}  Authentication failure"
+  # print info for each ip
+  def print( hosts = false)
+    ips(false) do |ip , connection|
+      if connection.is_a?(String)
+        message = connection
+      else
+        if(hosts)
+          message = admin_name(connection)
+        else
+          message = "ok"
+        end
       end
-      @at += 1
+      puts "#{ip} = #{message}"
     end
   end
 
@@ -60,11 +43,58 @@ class Routers
     cron_file = "/etc/crontabs/root"
     cron_create = "echo '#{cron_job}' > #{cron_file}"
     crond_restart = "/etc/init.d/cron restart"
-    all_ips do |ip , connection|
+    ips do |ip , connection|
       connection.exec!(cron_create)
       connection.exec!(crond_restart)
       puts "Cron for #{ip} ok"
     end
   end
+
+  private
+  # get the hostname from the connection
+  # (as opposed to the admin network name)
+  def host_name(connection)
+    connection.exec! "uci get system.@system[0].hostname"
+  end
+
+  # get the admin name, ie the dhcp name of the admin interface
+  def admin_name(connection)
+    connection.exec! "uci get network.admin.hostname"
+  end
+
+  # takes a block and yields ip and connection to
+  # every succesful connection
+  def ips(live_only = true)
+    while(@at < @@stop_at)
+      begin
+        connection = Net::SSH.start(at , "root" ,
+            password:  Rails.application.credentials.sala,
+            non_interactive: true ,
+            timeout: 4)
+        yield( at , connection)
+        connection.close
+      rescue Net::SSH::ConnectionTimeout
+        yield( at, "Timed out ssh") unless live_only
+      rescue Errno::ETIMEDOUT
+        yield( at, "Timed out Errno") unless live_only
+      rescue Errno::EHOSTUNREACH
+        yield( at, "Host unreachable") unless live_only
+      rescue Errno::ECONNREFUSED
+        yield( at, "Connection refused") unless live_only
+      rescue Net::SSH::AuthenticationFailed
+        yield( at, "Authentication failure") unless live_only
+      end
+      @at += 1
+    end
+  end
+
+  #rudementary cli, dispatch on first arg, and pass rest
+  def self.cli
+    args = ARGV.dup
+    command = args.shift
+    routers = Routers.new
+    routers.send(command , *args)
+  end
 end
-Routers.new.make_cron
+
+Routers.cli
