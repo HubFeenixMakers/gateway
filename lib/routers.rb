@@ -4,8 +4,8 @@ require "net/ssh"
 class Routers
 
   @@start_address = "10.20.20."
-  @@start_at = 30
-  @@stop_at = 80
+  @@start_at = 20
+  @@stop_at = 85
 
   def initialize
     @at = @@start_at
@@ -16,16 +16,13 @@ class Routers
   end
 
   # print info for each ip
-  def print( hosts = false)
+  def print( info = nil)
+    info = "host_name" unless info
     ips(false) do |ip , connection|
       if connection.is_a?(String)
         message = connection
       else
-        if(hosts)
-          message = admin_name(connection)
-        else
-          message = "ok"
-        end
+        message = send(info.to_sym , connection)
       end
       puts "#{ip} = #{message}"
     end
@@ -50,18 +47,57 @@ class Routers
     end
   end
 
+  def scan
+    info = {}
+    ips(false) do |ip , connection|
+      if connection.is_a?(String)
+        message = connection
+      else
+        info[ip] = get_info(connection)
+        message = info[ip][:machine]
+      end
+      puts "#{ip} = #{message}"
+    end
+    r_file = File.open("#{Rails.root}/config/routers.yml" , "w")
+    r_file.write(info.to_yaml)
+    puts "Routers file written , #{info.length} live"
+  end
+
+  def each_router
+    routers = YAML::load(File.open("#{Rails.root}/config/routers.yml"))
+    routers.each do |ip ,info|
+      connection = Net::SSH.start(at , "root" ,
+          password:  Rails.application.credentials.sala,
+          non_interactive: true ,
+          timeout: 4)
+      yield( ip , connection)
+      connection.close
+    end
+  end
+
   private
   # get the hostname from the connection
   # (as opposed to the admin network name)
   def host_name(connection)
-    connection.exec! "uci get system.@system[0].hostname"
+    connection.exec!( "uci get system.@system[0].hostname").strip
   end
 
   # get the admin name, ie the dhcp name of the admin interface
   def admin_name(connection)
-    connection.exec! "uci get network.admin.hostname"
+    connection.exec!( "uci get network.admin.hostname").strip
   end
 
+  def cpuinfo(connection)
+    connection.exec! "cat /proc/cpuinfo"
+  end
+
+  def machine(connection)
+    cpuinfo(connection).lines[1].split(":")[1].strip
+  end
+
+  def get_info(connection)
+    {machine: machine(connection) , host_name: admin_name(connection)}
+  end
   # takes a block and yields ip and connection to
   # every succesful connection
   def ips(live_only = true)
