@@ -16,14 +16,10 @@ class Routers
   end
 
   # print info for each ip
-  def print( info = nil)
+  def print( info )
     info = "host_name" unless info
-    ips(false) do |ip , connection|
-      if connection.is_a?(String)
-        message = connection
-      else
-        message = send(info.to_sym , connection)
-      end
+    each_router do |ip , connection|
+      message = send(info.to_sym , connection)
       puts "#{ip} = #{message}"
     end
   end
@@ -40,7 +36,7 @@ class Routers
     cron_file = "/etc/crontabs/root"
     cron_create = "echo '#{cron_job}' > #{cron_file}"
     crond_restart = "/etc/init.d/cron restart"
-    ips do |ip , connection|
+    each_router do |ip , connection|
       connection.exec!(cron_create)
       connection.exec!(crond_restart)
       puts "Cron for #{ip} ok"
@@ -66,7 +62,7 @@ class Routers
   def each_router
     routers = YAML::load(File.open("#{Rails.root}/config/routers.yml"))
     routers.each do |ip ,info|
-      connection = Net::SSH.start(at , "root" ,
+      connection = Net::SSH.start(ip , "root" ,
           password:  Rails.application.credentials.sala,
           non_interactive: true ,
           timeout: 4)
