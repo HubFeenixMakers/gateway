@@ -1,0 +1,112 @@
+---
+10.20.20.32:
+  :machine: TP-Link Archer C50 v4
+  :host_name: 5_b_sky2_ap
+10.20.20.33:
+  :machine: Asus RT-AC51U
+  :host_name: 5_a_korfu_ap
+10.20.20.37:
+  :machine: Xiaomi Mi Router 4A Gigabit Edition
+  :host_name: 1_hall_ap
+10.20.20.40:
+  :machine: Asus RT-AC51U
+  :host_name: 1_sulka_rack_ap
+10.20.20.42:
+  :machine: Xiaomi Mi Router 4A Gigabit Edition
+  :host_name: 4_a_1_ap
+10.20.20.43:
+  :machine: TP-Link TL-WR841N v14
+  :host_name: 5_a_rt_ap
+10.20.20.44:
+  :machine: Xiaomi Mi Router 4A Gigabit Edition
+  :host_name: 2_a_4_ap
+10.20.20.45:
+  :machine: Xiaomi Mi Router 4A Gigabit Edition
+  :host_name: 2_a_5_ap
+10.20.20.46:
+  :machine: Xiaomi Mi Router 4A Gigabit Edition
+  :host_name: 2_a_2_ap
+10.20.20.47:
+  :machine: Xiaomi Mi Router 4A Gigabit Edition
+  :host_name: 2_a_1_ap
+10.20.20.48:
+  :machine: Xiaomi Mi Router 4A Gigabit Edition
+  :host_name: 2_a_3_ap
+10.20.20.49:
+  :machine: Xiaomi Mi Router 4A Gigabit Edition
+  :host_name: 3_c_cowork_xi_ap
+10.20.20.50:
+  :machine: Xiaomi Mi Router 4A Gigabit Edition
+  :host_name: 1_a_karhun_ap
+10.20.20.51:
+  :machine: Xiaomi Mi Router 4A Gigabit Edition
+  :host_name: 1_a_skaapi_ap
+10.20.20.52:
+  :machine: Xiaomi Mi Router 4A Gigabit Edition
+  :host_name: 1_a_kanslia_ap
+10.20.20.53:
+  :machine: Xiaomi Mi Router 4A Gigabit Edition
+  :host_name: 1_k_shop_ap
+10.20.20.54:
+  :machine: TP-Link Archer C50 v4
+  :host_name: 5_a_mandala_ap
+10.20.20.55:
+  :machine: TP-Link TL-WR841N v14
+  :host_name: 4_a_rack_switch
+10.20.20.56:
+  :machine: TP-Link TL-WR841N v14
+  :host_name: 2_d_7_ap
+10.20.20.57:
+  :machine: TP-Link TL-WR841N v14
+  :host_name: 3_c_cowork_wr_ap
+10.20.20.58:
+  :machine: TP-Link TL-WR841N v14
+  :host_name: 2_d_5_ap
+10.20.20.59:
+  :machine: TP-Link TL-WR841N v14
+  :host_name: 3_c_309_ap
+10.20.20.60:
+  :machine: TP-Link TL-WR841N v14
+  :host_name: 1_nest_12_ap
+10.20.20.61:
+  :machine: TP-Link TL-WR841N v14
+  :host_name: 1_nest_15_ap
+10.20.20.62:
+  :machine: TP-Link TL-WR841N v14
+  :host_name: 1_nest_9_ap
+10.20.20.63:
+  :machine: TP-Link TL-WR841N v14
+  :host_name: 1_nest_7_ap
+10.20.20.64:
+  :machine: TP-Link TL-WR841N v14
+  :host_name: 1_nest_4_ap
+10.20.20.65:
+  :machine: TP-Link TL-WR841N v14
+  :host_name: 1_nest_1_ap
+10.20.20.66:
+  :machine: TP-Link TL-WR841N v14
+  :host_name: 1_makers_146_ap
+10.20.20.67:
+  :machine: TP-Link TL-WR841N v14
+  :host_name: 1_makers_112_ap
+10.20.20.68:
+  :machine: TP-Link TL-WR841N v14
+  :host_name: 1_makers_121_ap
+10.20.20.69:
+  :machine: TP-Link TL-WR841N v14
+  :host_name: 2_makers_216_ap
+10.20.20.71:
+  :machine: TP-Link TL-WR841N v14
+  :host_name: 2_d_2_ap
+10.20.20.72:
+  :machine: TP-Link TL-WR841N v14
+  :host_name: 1_b_110_ap
+10.20.20.73:
+  :machine: TP-Link TL-WR841N v14
+  :host_name: 0_nest_rack_ap
+10.20.20.74:
+  :machine: TP-Link TL-WR841N v14
+  :host_name: 5_b_hissi_ap
+10.20.20.76:
+  :machine: TP-Link TL-WR841N v14
+  :host_name: 3_c_back_right_ap
