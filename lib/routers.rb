@@ -91,6 +91,11 @@ class Routers
     cpuinfo(connection).lines[1].split(":")[1].strip
   end
 
+  def networks(connection)
+    nets = connection.exec!( "uci show | grep ssid")
+    nets.lines.collect{|line| line.split("=").last.strip}#.join(",")
+  end
+
   def get_info(connection)
     {machine: machine(connection) , host_name: admin_name(connection)}
   end
