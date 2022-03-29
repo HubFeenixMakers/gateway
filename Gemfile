@@ -27,9 +27,7 @@ end
 group :development do
   gem "web-console"
   gem "rack-mini-profiler"
-  gem "capistrano", "~> 3.17", require: false
-  gem 'capistrano-rbenv' ,  require: false
-  gem "capistrano-rails",  require: false
+  gem "mina"
 end
 
 group :test do
