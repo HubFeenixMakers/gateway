@@ -5,6 +5,6 @@
    user: "feenix",
    roles: %w{web app db},
    ssh_options: {
-     auth_methods: %w(publickey)
+#     auth_methods: %w(publickey)
      # password: "please use keys"
    }
