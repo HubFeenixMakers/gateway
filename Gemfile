@@ -6,7 +6,6 @@ ruby "3.0.3"
 gem "rails", "~> 7.0"
 gem "sprockets-rails"
 gem "sqlite3", "~> 1.4"
-gem "puma", "~> 5.0"
 gem "importmap-rails"
 gem "stimulus-rails"
 gem "bootsnap", require: false
@@ -15,6 +14,7 @@ gem "sassc-rails"
 gem "net-ssh"
 
 gem "haml-rails"
+gem "passenger", ">= 5.3.2", require: "phusion_passenger/rack_handler"
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
