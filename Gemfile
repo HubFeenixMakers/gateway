@@ -16,7 +16,7 @@ gem "net-ssh"
 gem "haml-rails"
 gem 'high_voltage', '~> 3.1'
 
-gem "puma"
+gem "puma" , "4.3.10"
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
@@ -30,7 +30,7 @@ group :development do
   gem "web-console"
   gem "rack-mini-profiler"
   gem "mina"
-  gem "mina-puma" , git: "https://github.com/lekastillo/mina-puma"
+  gem "mina-puma"
 end
 
 group :test do
