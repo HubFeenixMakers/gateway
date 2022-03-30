@@ -14,6 +14,8 @@ gem "sassc-rails"
 gem "net-ssh"
 
 gem "haml-rails"
+gem 'high_voltage', '~> 3.1'
+
 gem "passenger", ">= 5.3.2", require: "phusion_passenger/rack_handler"
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]

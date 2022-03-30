@@ -102,6 +102,7 @@ GEM
       haml (>= 4.0.6, < 6.0)
       html2haml (>= 1.0.1)
       railties (>= 5.1)
+    high_voltage (3.1.2)
     html2haml (2.2.0)
       erubis (~> 2.7.0)
       haml (>= 4.0, < 6)
@@ -248,6 +249,7 @@ DEPENDENCIES
   capybara
   debug
   haml-rails
+  high_voltage (~> 3.1)
   importmap-rails
   mina
   net-ssh
