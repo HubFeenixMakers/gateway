@@ -59,7 +59,7 @@ task :deploy do
 
     on :launch do
       in_path(fetch(:current_path)) do
-        invoke :'puma:phased_restart'
+        invoke :'puma:hard_restart'
       end
     end
   end
