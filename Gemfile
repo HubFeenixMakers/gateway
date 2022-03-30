@@ -30,7 +30,7 @@ group :development do
   gem "web-console"
   gem "rack-mini-profiler"
   gem "mina"
-  gem "mina-puma"
+  gem "mina-puma" , git: "https://github.com/lekastillo/mina-puma"
 end
 
 group :test do
