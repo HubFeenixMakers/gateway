@@ -1,6 +1,7 @@
 require 'mina/rails'
 require 'mina/git'
 require 'mina/rbenv'  # for rbenv support. (https://rbenv.org)
+require 'mina/puma'
 
 # Basic settings:
 #   domain       - The hostname to SSH to.
@@ -58,8 +59,7 @@ task :deploy do
 
     on :launch do
       in_path(fetch(:current_path)) do
-        command %{mkdir -p tmp/}
-        command %{touch tmp/restart.txt}
+        invoke :'puma:phased_restart'
       end
     end
   end
