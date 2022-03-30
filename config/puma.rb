@@ -26,6 +26,9 @@ pidfile ENV.fetch("PIDFILE") { "tmp/pids/puma.pid" }
 
 bind 'unix://tmp/sockets/pumactl.sock'
 
+# mina/puma expects it 
+state_path 'tmp/sockets/puma.state'
+
 # Specifies the number of `workers` to boot in clustered mode.
 # Workers are forked web server processes. If using threads and workers together
 # the concurrency of the application would be max `threads` * `workers`.
