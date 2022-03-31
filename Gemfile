@@ -18,6 +18,8 @@ gem 'high_voltage', '~> 3.1'
 
 gem "passenger", require: "phusion_passenger/rack_handler"
 
+gem "dnsimple"
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
