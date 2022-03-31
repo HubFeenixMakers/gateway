@@ -67,6 +67,12 @@ task :deploy do
   # run(:local){ say 'done' }
 end
 
-# For help in making your deploy script, see the Mina documentation:
-#
-#  - https://github.com/mina-deploy/mina/tree/master/docs
+namespace :passenger do
+  desc "Restart Passenger"
+  task :restart do
+    command %{
+      echo "-----> Restarting passenger"
+      #{echo_cmd %[touch tmp/restart.txt]}
+    }
+  end
+end
