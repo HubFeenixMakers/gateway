@@ -13,7 +13,7 @@ set :application_name, 'gateway'
 set :domain, 'web-server.local'
 set :deploy_to, '/home/feenix/gateway'
 set :repository, "https://github.com/rubydesign/gateway.git"
-set :branch, 'main'
+set :branch, 'passenger'
 
 # Optional settings:
 set :user, 'feenix'          # Username in the server to SSH to.
@@ -59,7 +59,7 @@ task :deploy do
 
     on :launch do
       in_path(fetch(:current_path)) do
-        invoke :'puma:hard_restart'
+        invoke :'passenger:restart'
       end
     end
   end
