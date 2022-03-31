@@ -1,7 +1,6 @@
 require 'mina/rails'
 require 'mina/git'
 require 'mina/rbenv'  # for rbenv support. (https://rbenv.org)
-require 'mina/puma'
 
 # Basic settings:
 #   domain       - The hostname to SSH to.
