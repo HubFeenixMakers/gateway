@@ -33,6 +33,8 @@ group :development do
   gem "web-console"
   gem "rack-mini-profiler"
   gem "mina"
+  gem 'guard-rails'
+  gem 'guard-rspec'
 end
 
 group :test do
