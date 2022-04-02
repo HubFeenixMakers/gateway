@@ -9,12 +9,16 @@ class DnsUpdateJob < ApplicationJob
       Rails.application.credentials.simple_id
   end
   def my_ip
-    HTTParty.get("http://icanhazip.com").strip
+    HTTParty.get("https://jsonip.com/")["ip"]
   end
 
   def find_record(name , host)
     zones = client.zones.list_zone_records(simple_id, host, filter: { type: 'A' , name: name })
     zones.data.first
+  end
+
+  def same_ip
+    my_ip == find_record("gateway" , "hubfeenix.fi").content
   end
 
   def update_ip

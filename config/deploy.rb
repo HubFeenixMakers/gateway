@@ -9,7 +9,7 @@ require 'mina/rbenv'  # for rbenv support. (https://rbenv.org)
 #   branch       - Branch name to deploy. (needed by mina/git)
 
 set :application_name, 'gateway'
-set :domain, 'web-server.local'
+set :domain, '192.168.128.3'
 set :deploy_to, '/home/feenix/gateway'
 set :repository, "https://github.com/rubydesign/gateway.git"
 set :branch, 'passenger'
