@@ -321,7 +321,7 @@ DEPENDENCIES
   importmap-rails
   mina
   net-ssh
-  passenger
+  passenger (= 6.0.13)
   rack-mini-profiler
   rails (~> 7.0)
   rspec-rails (~> 5.0.0)

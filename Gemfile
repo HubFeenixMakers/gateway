@@ -16,7 +16,7 @@ gem "net-ssh"
 gem "haml-rails"
 gem 'high_voltage', '~> 3.1'
 
-gem "passenger", require: "phusion_passenger/rack_handler"
+gem "passenger", "6.0.13" , require: "phusion_passenger/rack_handler"
 
 gem "dnsimple"
 
