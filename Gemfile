@@ -17,7 +17,7 @@ gem "haml-rails"
 gem 'high_voltage', '~> 3.1'
 
 gem "passenger", "6.0.13" , require: "phusion_passenger/rack_handler"
-
+gem "io-wait" , "0.2.0"
 gem "dnsimple"
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
