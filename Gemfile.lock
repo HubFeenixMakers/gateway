@@ -139,7 +139,7 @@ GEM
       actionpack (>= 6.0.0)
       railties (>= 6.0.0)
     io-console (0.5.11)
-    io-wait (0.2.1)
+    io-wait (0.2.0)
     irb (1.4.1)
       reline (>= 0.3.0)
     listen (3.7.1)
@@ -319,6 +319,7 @@ DEPENDENCIES
   haml-rails
   high_voltage (~> 3.1)
   importmap-rails
+  io-wait (= 0.2.0)
   mina
   net-ssh
   passenger (= 6.0.13)
