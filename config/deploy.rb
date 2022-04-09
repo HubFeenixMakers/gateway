@@ -10,10 +10,10 @@ require "mina/whenever"
 #   branch       - Branch name to deploy. (needed by mina/git)
 
 set :application_name, 'gateway'
-set :domain, 'web-server.local'
+set :domain, '192.168.128.100'
 set :deploy_to, '/home/feenix/gateway'
 set :repository, "https://github.com/rubydesign/gateway.git"
-set :branch, 'main'
+set :branch, 'passenger'
 
 # Optional settings:
 set :user, 'feenix'          # Username in the server to SSH to.
@@ -59,8 +59,9 @@ task :deploy do
 
     on :launch do
       in_path(fetch(:current_path)) do
-        invoke :'puma:hard_restart'
+        invoke :'passenger:restart'
       end
+      invoke :'whenever:update'
     end
   end
 
@@ -68,6 +69,12 @@ task :deploy do
   # run(:local){ say 'done' }
 end
 
-# For help in making your deploy script, see the Mina documentation:
-#
-#  - https://github.com/mina-deploy/mina/tree/master/docs
+namespace :passenger do
+  desc "Restart Passenger"
+  task :restart do
+    command %{
+      echo "-----> Restarting passenger"
+      #{echo_cmd %[touch tmp/restart.txt]}
+    }
+  end
+end
