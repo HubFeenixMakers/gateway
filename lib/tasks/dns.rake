@@ -1,3 +1,4 @@
+require "dns_update_job"
 namespace :dns do
   desc "Update own dyn dns records"
   task update: :environment do
