@@ -1,6 +1,5 @@
 require "dnsimple"
-class DnsUpdateJob < ApplicationJob
-  queue_as :default
+class DnsUpdateJob
 
   def client
     @client ||= Dnsimple::Client.new(access_token: Rails.application.credentials.simple_token)
@@ -9,7 +8,7 @@ class DnsUpdateJob < ApplicationJob
       Rails.application.credentials.simple_id
   end
   def my_ip
-    HTTParty.get("https://jsonip.com/")["ip"]
+    @ip ||= HTTParty.get("https://jsonip.com/")["ip"]
   end
 
   def find_record(name , host)
@@ -17,14 +16,12 @@ class DnsUpdateJob < ApplicationJob
     zones.data.first
   end
 
-  def same_ip
-    my_ip == find_record("gateway" , "hubfeenix.fi").content
+  def same_ip(name , host)
+    my_ip == find_record(name , host).content
   end
 
-  def update_ip
-    record = find_record("gateway" , "hubfeenix.fi")
-    client.zones.update_zone_record(simple_id,"hubfeenix.fi", record.id , content: my_ip)
-  end
-  def perform(*args)
+  def update_ip(name , host)
+    record = find_record(name , host)
+    client.zones.update_zone_record(simple_id, host , record.id , content: my_ip)
   end
 end

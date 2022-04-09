@@ -60,6 +60,7 @@ task :deploy do
       in_path(fetch(:current_path)) do
         invoke :'passenger:restart'
       end
+      invoke :'whenever:update'
     end
   end
 

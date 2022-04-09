@@ -1,19 +1,18 @@
 require 'rails_helper'
+require "dns_update_job"
 
-RSpec.describe DnsUpdateJob, type: :job do
-  ActiveJob::Base.queue_adapter = :test
-  let(:my_ip){"85.76.133.88"}
+RSpec.describe DnsUpdateJob, type: :task do
 
   it "update ip" do
     updater = DnsUpdateJob.new
-    updater.update_ip
-    zone = updater.find_record("gateway","hubfeenix.fi")
-    expect(zone.content).to eq my_ip
+    updater.update_ip("dnsimple_test","hubfeenix.fi")
+    zone = updater.find_record("dnsimple_test","hubfeenix.fi")
+    expect(zone.content).to eq updater.my_ip
   end
 
   it "should get ip" do
     res = DnsUpdateJob.new.my_ip
-    expect(res).to eq my_ip
+    expect(res).to start_with "80"
   end
 
   it "should init client" do
@@ -22,9 +21,10 @@ RSpec.describe DnsUpdateJob, type: :job do
   end
 
   it "should find domain" do
-    zone = DnsUpdateJob.new.find_record("gateway","hubfeenix.fi")
+    updater = DnsUpdateJob.new
+    zone = updater.find_record("dnsimple_test","hubfeenix.fi")
     expect(zone.class).to eq Dnsimple::Struct::ZoneRecord
-    expect(zone.name).to eq "gateway"
-    expect(zone.content).to eq my_ip
+    expect(zone.name).to eq "dnsimple_test"
+    expect(zone.content).to eq updater.my_ip
   end
 end
