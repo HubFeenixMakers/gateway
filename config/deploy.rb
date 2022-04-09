@@ -24,7 +24,7 @@ set :user, 'feenix'          # Username in the server to SSH to.
 # Some plugins already add folders to shared_dirs like `mina/rails` add `public/assets`, `vendor/bundle` and many more
 # run `mina -d` to see all folders and files already included in `shared_dirs` and `shared_files`
 set :shared_dirs, fetch(:shared_dirs, []).push('tmp/pids' , 'tmp/sockets')
-set :shared_files, fetch(:shared_files, []).push('config/master.key')
+set :shared_files, fetch(:shared_files, []).push('config/master.key' , 'config/letsencrypt.key')
 
 # This task is the environment that is loaded for all remote run commands, such as
 # `mina deploy` or `mina rake`.
