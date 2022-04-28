@@ -5,8 +5,8 @@ ruby "3.0.3"
 
 gem "rails", "~> 7.0"
 gem "sprockets-rails"
-gem "importmap-rails"
-gem "stimulus-rails"
+
+
 gem "bootsnap", require: false
 gem "sassc-rails"
 
@@ -15,7 +15,6 @@ gem "net-ssh"
 gem "haml-rails"
 gem 'high_voltage', '~> 3.1'
 
-gem "passenger", "6.0.13" , require: "phusion_passenger/rack_handler"
 gem "io-wait" , "0.2.0"
 gem "dnsimple"
 gem 'whenever', require: false
@@ -26,10 +25,14 @@ gem 'whenever', require: false
 gem "pg"
 gem 'rails-letsencrypt'
 
+group :production do
+  gem "passenger", "6.0.13" , require: "phusion_passenger/rack_handler"
+end
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
   gem 'rspec-rails', '~> 5.0.0'
+  gem "puma"
 end
 
 group :development do
@@ -47,3 +50,7 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+gem "jsbundling-rails", "~> 1.0"
+
+gem "cssbundling-rails", "~> 1.1"
