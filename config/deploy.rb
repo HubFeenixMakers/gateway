@@ -12,7 +12,7 @@ set :application_name, 'gateway'
 set :domain, '192.168.129.10'
 set :deploy_to, '/home/feenix/gateway'
 set :repository, "https://github.com/rubydesign/gateway.git"
-set :branch, 'master'
+set :branch, 'main'
 
 # Optional settings:
 set :user, 'feenix'          # Username in the server to SSH to.
