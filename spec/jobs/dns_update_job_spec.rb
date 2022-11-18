@@ -12,7 +12,7 @@ RSpec.describe DnsUpdateJob, type: :task do
 
   it "should get ip" do
     res = DnsUpdateJob.new.my_ip
-    expect(res).to start_with "80"
+    expect(res).to start_with "84"
   end
 
   it "should init client" do
