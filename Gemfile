@@ -23,7 +23,6 @@ gem 'whenever', require: false
 # gem "image_processing", "~> 1.2"
 
 gem "pg"
-gem 'rails-letsencrypt'
 
 group :production do
   gem "passenger", "6.0.13" , require: "phusion_passenger/rack_handler"
