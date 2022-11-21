@@ -19,6 +19,11 @@ gem "io-wait" , "0.2.0"
 gem "dnsimple"
 gem 'whenever', require: false
 
+gem "jsbundling-rails", "~> 1.0"
+gem "cssbundling-rails", "~> 1.1"
+gem "importmap-rails", "~> 1.1"
+gem "tailwindcss-rails", "~> 2.0"
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
@@ -49,11 +54,3 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
-
-gem "jsbundling-rails", "~> 1.0"
-
-gem "cssbundling-rails", "~> 1.1"
-
-gem "importmap-rails", "~> 1.1"
-
-gem "tailwindcss-rails", "~> 2.0"
