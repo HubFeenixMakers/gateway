@@ -1,0 +1,7 @@
+- template: hero_section
+  header: HUB  FEENIX
+  text:
+    Only an hour west of Helsinki, the Feenix rises from an old sanatorium.
+    The Hub is a place to create, learn and regenerate.
+  image: house.jpg
+  im: section.overflow-hidden.bg-cover.bg-center.bg-no-repeat{:class => "bg-[url('#{image_url('cms/' + section['image'])}')]"}
