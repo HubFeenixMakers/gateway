@@ -1,6 +1,15 @@
-- template: section_hero2
+- template: section_full_left2
   header: HUB  FEENIX
   text:
     Only an hour west of Helsinki, the Feenix rises from an old sanatorium.
     The Hub is a place to create, learn and regenerate.
   image: house.jpg
+- template: section_half_right
+  header: Retreats
+  text:
+    Hub Feenix is a beautiful place, ideally situated in the country, but close to Helsinki.
+    We have different sized studios and spaces, to organise retreats for up to 100 people.
+  button:
+    text: Retreats
+    link: retreats
+  image: retreats.jpg
