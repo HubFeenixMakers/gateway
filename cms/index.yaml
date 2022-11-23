@@ -4,6 +4,7 @@
     Only an hour west of Helsinki, the Feenix rises from an old sanatorium.
     The Hub is a place to create, learn and regenerate.
   image: house.jpg
+- template: section_spacer
 - template: section_half_right
   header: Retreats
   text:
