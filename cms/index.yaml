@@ -14,3 +14,23 @@
     text: Retreats
     link: retreats
   image: retreats.jpg
+- template: section_half_left
+  header: Studios
+  text:
+    We offer different size and different type of studios for artists.
+    There are large and small rooms, with more or less light,
+    also rooms with tiles for wetwork, small dance studios etc.
+  button:
+    text: Studios
+    link: studios
+  image: studios.jpg
+- template: section_half_right
+  header: Makerspace
+  text:
+    The hub encourages all people to be creative in any way they choose.
+    We provide facilities from more traditional sowing and woodworking,
+    to modern 3d printers and electronics lab.
+  button:
+    text: Makerspace
+    link: makerspace
+  image: makerspace.webp

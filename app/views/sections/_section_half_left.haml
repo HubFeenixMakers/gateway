@@ -1,4 +1,5 @@
 %section.overflow-hidden.sm:grid.sm:grid-cols-2
+  = image_for( section , "p-5 h-56 w-full object-cover sm:h-full")
   .p-8.m-5.bg-cyan-100.md:p-12.lg:px-16.lg:py-24
     .mx-auto.max-w-xl.text-center.sm:text-left
       %h2.text-2xl.font-bold.text-gray-900.md:text-3xl
@@ -8,4 +9,3 @@
       .mt-4.md:mt-8
         -if section["button"]
           = render 'elements/button' , button: section["button"]
-  = image_for( section , "p-5 h-56 w-full object-cover sm:h-full")
