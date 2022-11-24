@@ -6,6 +6,6 @@
       %p.mt-4.text-gray-500
         = section["text"]
   - template = "cards/" + section["element_template"]
-  .grid.grid-cols-2.gap-4
+  .grid.grid-cols-1.md:grid-cols-2
     - section["elements"].each do |element|
       = render( template , element: element)
