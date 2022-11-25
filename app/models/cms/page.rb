@@ -1,11 +1,12 @@
 module Cms
   class Page
-    include ActiveModel::API
+    include ActiveModel::Model
     include ActiveModel::Conversion
+    include ActiveModel::Dirty
 
     @@files = Set.new Dir.new(Rails.root.join("cms")).children
 
-    attr_reader :name
+    attr_reader :name , :content
 
     def id
       @name
@@ -20,8 +21,17 @@ module Cms
       @content = YAML.load_file(Rails.root.join("cms" , file_name))
     end
 
+    def template
+      @content[0]["template"]
+    end
+
+    def save
+      false
+    end
+
     def self.all
       @@files.collect{ |file| Page.new(file) }
     end
+
   end
 end
