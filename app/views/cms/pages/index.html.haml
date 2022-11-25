@@ -1,0 +1,21 @@
+%h1 Listing cms_pages
+
+%table
+  %thead
+    %tr
+      %th
+      %th
+      %th
+
+  %tbody
+    - @cms_pages.each do |cms_page|
+      %tr
+        =cms_page.id
+      %tr
+        %td= link_to 'Show', cms_page
+        %td= #link_to 'Edit', edit_cms_page_path(cms_page)
+        %td= link_to 'Destroy', cms_page, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Page', new_cms_page_path

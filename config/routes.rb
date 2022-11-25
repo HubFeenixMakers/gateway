@@ -2,8 +2,7 @@ Rails.application.routes.draw do
 
   namespace :cms do
     resources :pages
-    resources :image
-    resources :page
+    resources :images
   end
 
   get 'pages/:id' , to: 'high_voltage/pages#show', id: 'index'
