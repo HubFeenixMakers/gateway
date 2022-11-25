@@ -1,6 +1,6 @@
 module Cms
 
-  class ImageController < ApplicationController
+  class ImageController < CmsController
 
     @@root = "app/assets/images/cms/"
     @@files = Set.new Dir.new(Rails.root + @@root).children
