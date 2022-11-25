@@ -1,7 +1,7 @@
-%h1 Editing cms_page
+%h1 Editing #{@cms_page.name}
 
 = render 'form'
 
-= link_to 'Show', @cms_page
+= link_to 'Show', cms_page_url(@cms_page.name)
 \|
 = link_to 'Back', cms_pages_path

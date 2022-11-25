@@ -33,5 +33,9 @@ module Cms
       @@files.collect{ |file| Page.new(file) }
     end
 
+    def self.find(name)
+      Page.new(name + ".yaml")
+    end
+
   end
 end
