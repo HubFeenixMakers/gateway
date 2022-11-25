@@ -5,8 +5,8 @@
     The rooms are in the old hospital wings, so most are old patient rooms, but there are plenty of others too.
     Prices do not include electricity or vat, but do include the use of common spaces, see below.
   image: makerspace.webp
-  element_template: card_full_image
-  elements:
+  card_template: card_full_image
+  cards:
     - header: Standard
       text:
         This is the standard 2 patient room. They are mostly towards the south,
