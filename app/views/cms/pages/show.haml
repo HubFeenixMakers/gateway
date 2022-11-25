@@ -1,0 +1,18 @@
+%p#notice= notice
+
+-@page.sections.each_with_index do |section , index|
+  .grid.grid-cols-6.gap-4.m-8{class: (index%2)==1 ? 'bg-emerald-50/50' : 'bg-yellow-50/50' }
+    .relative.block.border.border-gray-100
+      =#image_tag("cms/#{file}" , class: "h-56 w-full object-contain lg:h-72")
+      .p-6
+        %h3.mt-4.text-lg.font-bold= section.template #PREVIEW here
+        %button.mt-4.block.w-full.rounded-sm.bg-yellow-500.p-4.text-sm.font-medium{:type => "button"}
+          =index #up down delete actions here
+    -section.content.each do |key , value|
+      .p-6
+        %h3.mt-4.text-lg.font-bold= key.upcase
+        %p= value
+
+= link_to 'Edit', edit_cms_page_path(@page.name)
+\|
+= link_to 'Back', cms_pages_path

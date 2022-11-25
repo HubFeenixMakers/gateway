@@ -14,7 +14,7 @@
         %th.whitespace-nowrap.px-4.py-2.text-left.font-medium.text-gray-900
           Status
     %tbody.divide-y.divide-gray-200
-      - @cms_pages.each do |cms_page|
+      - @pages.each do |cms_page|
         %tr
           %td.whitespace-nowrap.px-4.py-2.text-gray-700
             = link_to cms_page.name , cms_page_path(cms_page.name)

@@ -8,10 +8,6 @@ module Cms
 
     attr_reader :name , :content
 
-    def id
-      @name
-    end
-
     def persisted?
       false
     end
@@ -19,6 +15,10 @@ module Cms
     def initialize file_name
       @name = file_name.split(".").first
       @content = YAML.load_file(Rails.root.join("cms" , file_name))
+    end
+
+    def sections
+      @content.collect{|section_data| Section.new(self , section_data)}
     end
 
     def template
