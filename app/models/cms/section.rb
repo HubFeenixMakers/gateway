@@ -20,6 +20,10 @@ module Cms
       @content["template"]
     end
 
+    def id
+      @content["id"]
+    end
+
     def save
       false
     end

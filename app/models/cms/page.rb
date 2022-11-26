@@ -21,12 +21,25 @@ module Cms
       @content.collect{|section_data| Section.new(self , section_data)}
     end
 
-    def template
+    def find_section(section_id)
+      content = @content.find{|section| section["id"] == section_id }
+      Section.new(self , content)
+    end
+
+    def first_template
       @content[0]["template"]
     end
 
+    def new_section
+      section = Hash.new
+      section['id'] = SecureRandom.hex(10)
+      @content << section
+      Section.new(self , section)
+    end
+
     def save
-      false
+      file_name = Rails.root.join("cms" , name + ".yaml")
+      File.write( file_name , @content.to_yaml)
     end
 
     def self.all
