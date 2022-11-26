@@ -1,10 +1,11 @@
+---
 - template: section_full_up
   header: Makerspace
-  text:
-    The hub encourages all people to be creative in any way they choose.
-    We provide facilities from more traditional sowing and woodworking,
-    to modern 3d printers and electronics lab.
+  text: The hub encourages all people to be creative in any way they choose. We provide
+    facilities from more traditional sowing and woodworking, to modern 3d printers
+    and electronics lab.
   button:
     text: Makerspace
     link: makerspace
   image: makerspace.webp
+  id: ae53864c801515ba3dde

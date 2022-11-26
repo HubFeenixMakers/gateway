@@ -1,36 +1,39 @@
+---
 - template: section_full_left2
   header: HUB  FEENIX
-  text:
-    Only an hour west of Helsinki, the Feenix rises from an old sanatorium.
-    The Hub is a place to create, learn and regenerate.
+  text: Only an hour west of Helsinki, the Feenix rises from an old sanatorium. The
+    Hub is a place to create, learn and regenerate.
   image: house.jpg
+  id: e134b2680319aa90c968
 - template: section_spacer
+  id: 79001495919c68bfba31
 - template: section_half_right
   header: Retreats
-  text:
-    Hub Feenix is a beautiful place, ideally situated in the country, but close to Helsinki.
-    We have different sized studios and spaces, to organise retreats for up to 100 people.
+  text: Hub Feenix is a beautiful place, ideally situated in the country, but close
+    to Helsinki. We have different sized studios and spaces, to organise retreats
+    for up to 100 people.
   button:
     text: Retreats
     link: retreats
   image: retreats.jpg
+  id: 6bec75e2fddc9bfa4436
 - template: section_half_left
   header: Studios
-  text:
-    We offer different size and different type of studios for artists.
-    There are large and small rooms, with more or less light,
-    also rooms with tiles for wetwork, small dance studios etc.
+  text: We offer different size and different type of studios for artists. There are
+    large and small rooms, with more or less light, also rooms with tiles for wetwork,
+    small dance studios etc.
   button:
     text: Studios
     link: studios
   image: studios.jpg
+  id: c23a6a50094d6a398a0b
 - template: section_half_right
   header: Makerspace
-  text:
-    The hub encourages all people to be creative in any way they choose.
-    We provide facilities from more traditional sowing and woodworking,
-    to modern 3d printers and electronics lab.
+  text: The hub encourages all people to be creative in any way they choose. We provide
+    facilities from more traditional sowing and woodworking, to modern 3d printers
+    and electronics lab.
   button:
     text: Makerspace
     link: makerspace
   image: makerspace.webp
+  id: bf71971f4efc58a613d2
