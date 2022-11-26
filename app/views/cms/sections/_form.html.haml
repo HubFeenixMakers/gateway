@@ -1,0 +1,10 @@
+= form_for @cms_section do |f|
+  - if @cms_section.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@cms_section.errors.count, "error")} prohibited this cms_section from being saved:"
+      %ul
+        - @cms_section.errors.full_messages.each do |message|
+          %li= message
+
+  .actions
+    = f.submit 'Save'

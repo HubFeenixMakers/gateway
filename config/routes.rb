@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
   namespace :cms do
-    resources :pages
+    resources :pages do
+      resources :sections
+    end
     resources :images
   end
 

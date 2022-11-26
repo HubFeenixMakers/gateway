@@ -1,0 +1,19 @@
+%h1 Listing cms_sections
+
+%table
+  %thead
+    %tr
+      %th
+      %th
+      %th
+
+  %tbody
+    - @cms_sections.each do |cms_section|
+      %tr
+        %td= link_to 'Show', cms_section
+        %td= link_to 'Edit', edit_cms_section_path(cms_section)
+        %td= link_to 'Destroy', cms_section, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Section', new_cms_section_path
