@@ -6,7 +6,8 @@
     The rooms are in the old hospital wings, so most are old patient rooms, but there
     are plenty of others too. Prices do not include electricity or vat, but do include
     the use of common spaces, see below.
-  image: makerspace.webp
+  image:
+  id: b7d16d4da518bafd3d39
   card_template: card_full_image
   cards:
   - header: Standard
@@ -19,4 +20,3 @@
       are large enough to be shared. The size is about 30m2 and the cost 240e. Like
       the small rooms these are south facing, very light.
     image: large.webp
-  id: b7d16d4da518bafd3d39

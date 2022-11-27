@@ -1,5 +1,9 @@
 %p#notice= notice
 
+%h1 Page #{@page.name}
+
+%h4 Section #{@section.id}
+ 
 .grid.grid-cols-2.gap-2.m-8
   - @section.content.each do |key , value|
     = render "cms/sections/editors/#{key}", section: @section , key: key , value: value

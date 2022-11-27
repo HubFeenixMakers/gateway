@@ -18,12 +18,19 @@ module Cms
     end
 
     def sections
-      @content.collect{|section_data| Section.new(self , section_data)}
+      sections = []
+      @content.each_with_index do |section_data, index|
+        sections << Section.new(self , index,  section_data)
+      end
+      sections
     end
 
     def find_section(section_id)
-      content = @content.find{|section| section["id"] == section_id }
-      Section.new(self , content)
+      @content.each_with_index do |section , index|
+        next unless section["id"] == section_id
+        return Section.new(self , index , section)
+      end
+      raise "Page #{name} as no section #{section_id}"
     end
 
     def first_template
@@ -34,7 +41,7 @@ module Cms
       section = Hash.new
       section['id'] = SecureRandom.hex(10)
       @content << section
-      Section.new(self , section)
+      Section.new(self , 0 , section)
     end
 
     def save

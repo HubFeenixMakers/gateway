@@ -4,16 +4,18 @@ module Cms
     include ActiveModel::Conversion
     include ActiveModel::Dirty
 
-    attr_reader :name , :content , :page
+    attr_reader :name , :content , :page , :index
 
     def persisted?
       false
     end
 
-    def initialize(page , section_data)
+    def initialize(page , index , section_data)
       @page = page
+      raise "No number #{index}" unless index.is_a?(Integer)
+      raise "No has #{section_data}" unless section_data.is_a?(Hash)
+      @index = index
       @content = section_data
-      # id = SecureRandom.hex(10) if new or not there
     end
 
     def template
