@@ -1,12 +1,14 @@
 module Cms
   class Page
-    include ActiveModel::Model
+    include ActiveModel::API
     include ActiveModel::Conversion
-    include ActiveModel::Dirty
+    extend  ActiveModel::Naming
 
     @@files = Set.new Dir.new(Rails.root.join("cms")).children
 
     attr_reader :name , :content
+
+    alias :id  :name
 
     def persisted?
       false

@@ -1,8 +1,8 @@
 module Cms
   class Section
-    include ActiveModel::Model
+    include ActiveModel::API
     include ActiveModel::Conversion
-    include ActiveModel::Dirty
+    extend  ActiveModel::Naming
 
     attr_reader :name , :content , :page , :index
 

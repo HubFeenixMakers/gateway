@@ -3,7 +3,7 @@ module Cms
   class ImagesController < CmsController
 
     @@root = "app/assets/images/cms/"
-    @@files = Set.new Dir.new(Rails.root + @@root).children
+    @@files = Set.new Dir[Rails.root + @@root + "*.*"].collect{|f|f.split("/").last}
 
     def index
       @files = files
