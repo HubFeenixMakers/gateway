@@ -18,6 +18,16 @@ module Cms
       @content = section_data
     end
 
+    def update(key , value)
+      return if key == "id" #not updating that
+      if(! @content[key].nil? )
+        if( @content[key].class != value.class )
+          raise "Type mismatch #{key} #{key.class}!=#{value.class}"
+        end
+      end
+      @content[key] = value
+    end
+
     def template
       @content["template"]
     end
@@ -27,7 +37,7 @@ module Cms
     end
 
     def save
-      false
+      raise "Called"
     end
 
     def self.all
@@ -35,6 +45,7 @@ module Cms
     end
 
     def self.find(page_name , section_id)
+      raise "buggy"
       Page.new(name + ".yaml")
     end
 
