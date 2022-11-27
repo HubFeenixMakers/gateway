@@ -1,0 +1,20 @@
+
+.grid.grid-cols-6.gap-4.m-8
+  -@images.each do |name , image|
+    .relative.block.border.border-gray-100
+      =image_tag("cms/#{name}" , class: "h-56 w-full object-contain lg:h-72")
+      .p-6
+        %strong.inline-block.bg-yellow-400.px-3.py-1.text-xs.font-medium
+          =image.type
+        %h3.mt-4.text-lg.font-bold= image.name
+        %p.mt-2.text-sm.text-gray-700 $14.99
+        %button.mt-4.block.w-full.rounded-sm.bg-yellow-500.p-4.text-sm.font-medium{:type => "button"}
+          Add to Cart
+  .relative.block.border.border-gray-100
+    .p-6
+      %h3.mt-4.text-lg.font-bold Add new Image
+      = form_tag(cms_images_path, method: :post , multipart: true) do
+        = text_field_tag 'filename'
+        = file_field_tag 'image_file'
+        = hidden_field_tag :redirect , "someURL"
+        = submit_tag 'Submit'

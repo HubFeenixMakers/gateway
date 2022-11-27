@@ -1,6 +1,10 @@
 module Cms
   class SectionsController < CmsController
-    before_action :set_page, only: %i[ show edit update destroy ]
+    before_action :set_page, only: %i[ show edit update destroy set_image select_image]
+
+    def select_image
+      @images = Image.all
+    end
 
     def update
       @section.content.each do |key , value|
@@ -17,7 +21,8 @@ module Cms
     private
     def set_page
       @page = Page.find(params[:page_id])
-      @section = @page.find_section( params[:id] )
+      section_id = params[:id] || params[:section_id]
+      @section = @page.find_section( section_id )
     end
 
   end

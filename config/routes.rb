@@ -2,7 +2,10 @@ Rails.application.routes.draw do
 
   namespace :cms do
     resources :pages do
-      resources :sections
+      resources :sections do
+        get :select_image
+        get :set_image
+      end
     end
     resources :images
   end

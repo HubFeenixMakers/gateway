@@ -1,7 +1,7 @@
 .relative.block.border.border-gray-100
   %h3.mt-4.text-lg.font-bold= key.upcase
   %button.ml-3.inline-block.rounded-lg.bg-blue-500.px-5.py-3.text-sm.font-medium.text-white
-    Update
+    =link_to "Update Image" , cms_page_section_select_image_url(@page.name,@section.id)
 
 .relative.block.border.border-gray-100
   -if value
