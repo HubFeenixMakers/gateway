@@ -6,6 +6,12 @@ module Cms
       @images = Image.all
     end
 
+    def set_image
+      @section.content["image"] = params[:image]
+      @page.save
+      redirect_to cms_page_section_url(@page.id,@section.id)
+    end
+
     def update
       @section.content.each do |key , value|
         next if key == "id"

@@ -6,12 +6,14 @@ module Cms
       @images = Image.all
     end
 
-    def new
-    end
-
     def create
-      Image.save_image(params['filename'] , params['image_file'])
-      redirect_to cms_image_index_path
+      new_image = Image.create_new(params['filename'] , params['image_file'])
+      redirect = :cms_images
+      if(params[:redirect])
+        redirect = params[:redirect].gsub("NEW" ,new_image.name)
+        puts "image redirect #{redirect}"
+      end
+      redirect_to redirect
     end
 
   end
